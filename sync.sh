@@ -17,14 +17,18 @@ clone_and_sync() {
 
 new_branch_update() {
   now=$(date +'%d/%m/%Y')
+
   cd $RL_PUBLIC_FOLDER/
   git pull $RL_PUBLIC_REPO_URL
   update_branch="update_${now}"
-  echo $update_branch
-  git checkout -b $update_branch
+
+  echo "Checkout out new branch: ${update_branch}"
+  git checkout -B $update_branch
+
   git add .
   git commit -m "New Update: ${now}"
   git push --set-upstream origin $update_branch
+
 }
 
 clone_and_sync
