@@ -1,2 +1,2 @@
 NAME = 'TEST'
-VERSION = 'v0.02'
+VERSION = 'v0.1'

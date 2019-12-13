@@ -1,13 +1,23 @@
 #!/bin/sh
 
+ROOT_DIRECTORY=kaysync #TODO: replace with codebase directory
+RL_PUBLIC_FOLDER=rl_public_repo
+RL_PUBLIC_REPO_URL=https://github.com/AmrMKayid/sync2.git #TODO: replace with rl repo url
+
 clone_and_sync() {
-  git clone https://github.com/AmrMKayid/sync2.git sync2/
-  rsync --progress -r -u kaysync/* sync2/
+  if [ ! -d "$RL_PUBLIC_FOLDER" ]; then
+    git clone "$RL_PUBLIC_REPO_URL" "$RL_PUBLIC_FOLDER"
+  else
+    cd "$RL_PUBLIC_FOLDER"
+    git pull $RL_PUBLIC_REPO_URL
+    cd ..
+  fi
+  rsync --progress -r -u $ROOT_DIRECTORY/ $RL_PUBLIC_FOLDER/
 }
 
 new_branch_update() {
-  now=$(date +'%m/%d/%Y')
-  cd sync2
+  now=$(date +'%d/%m/%Y')
+  cd $RL_PUBLIC_FOLDER/
   update_branch="update_${now}"
   echo $update_branch
   git checkout -b $update_branch
