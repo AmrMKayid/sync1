@@ -26,7 +26,7 @@ new_branch_update() {
 
   cd $RL_PUBLIC_FOLDER/
   git pull $RL_PUBLIC_REPO_URL
-  update_branch="update_${now}"
+  update_branch="update-${now}"
 
   echo "\nCheckout out new branch: ${update_branch}\n"
   git checkout -B $update_branch
