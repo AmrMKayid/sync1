@@ -1,2 +1,2 @@
-NAME = 'TEST'
-VERSION = 'v0.1'
+NAME = 'Sync'
+VERSION = 'v0.2'
