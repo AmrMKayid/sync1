@@ -22,7 +22,7 @@ new_branch_update() {
       (git log -1)
   )
 
-  echo "\nCommiting .... ${last_commit_msg}\n"
+  echo "\nCommiting..... \n${last_commit_msg}\n"
 
   cd $RL_PUBLIC_FOLDER/
   git pull $RL_PUBLIC_REPO_URL
